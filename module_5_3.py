@@ -10,27 +10,27 @@ class House:
         return f'Название:{self.name}, количество этажей:{self.number_of_floors}'
 
     def __eq__(self, other):
-        if isinstance(other.number_of_floors, int) and isinstance(other, House):
+        if isinstance(other, House) and isinstance(other.number_of_floors, int):
             return self.number_of_floors == other.number_of_floors
 
     def __lt__(self, other):
-        if isinstance(other.number_of_floors, int) and isinstance(other, House):
+        if isinstance(other, House) and isinstance(other.number_of_floors, int):
             return self.number_of_floors < other.number_of_floors
 
     def __le__(self, other):
-        if isinstance(other.number_of_floors, int) and isinstance(other, House):
+        if isinstance(other, House) and isinstance(other.number_of_floors, int):
             return self.number_of_floors <= other.number_of_floors
 
     def __gt__(self, other):
-        if isinstance(other.number_of_floors, int) and isinstance(other, House):
+        if isinstance(other, House) and isinstance(other.number_of_floors, int):
             return self.number_of_floors > other.number_of_floors
 
     def __ge__(self, other):
-        if isinstance(other.number_of_floors, int) and isinstance(other, House):
+        if isinstance(other, House) and isinstance(other.number_of_floors, int):
             return self.number_of_floors >= other.number_of_floors
 
     def __ne__(self, other):
-        if isinstance(other.number_of_floors, int) and isinstance(other, House):
+        if isinstance(other, House) and isinstance(other.number_of_floors, int):
             return self.number_of_floors != other.number_of_floors
 
     def __add__(self, value):
@@ -39,14 +39,10 @@ class House:
         return self
 
     def __radd__(self, value):
-        if isinstance(value, int):
-            self.number_of_floors += value
-        return self
+        return House.__add__(self, value)
 
     def __iadd__(self, value):
-        if isinstance(value, int):
-            self.number_of_floors += value
-        return self
+        return House.__add__(self, value)
 
 h1 = House('ЖК Эльбрус', 10)
 h2 = House('ЖК Акация', 20)
